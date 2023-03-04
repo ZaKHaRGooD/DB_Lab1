@@ -71,3 +71,9 @@ VALUES ('бежал', 1, null, 1),
        ('рванул', 1, 2, 2),
        ('влетел', 1, 2, 3),
        ('завизжала', 2, null, 1);
+
+SELECT h.human_name, actions.name_action, p.place_name, i.item_name
+FROM actions
+         INNER JOIN humans h on actions.human_id = h.id
+         INNER JOIN places p on actions.place_id = p.id
+         left JOIN items i on actions.item_id = i.id
